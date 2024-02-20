@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'img/usuarios/favicon.ico' %}" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-0Cp0D5A0iD5LPeaFv/ei7stH5Hq18qMA6nsa6sPsAmA+9aGv8Jn3M9l++fwK7KV5ZIWoJfR7kR0H5DwIKBKpvo1AA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{% static 'css/usuarios/base/style2.css' %}">
+    {%block style%} {% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <nav>
+        <div class="nav-img-n-text">
+            <img src="{% static 'img/logo.png' %}" alt="Logo" class="img-fluid nav-img">
+            <span>Inteligência em sistemas</span>
+        </div>
+        <div>
+            <ul class="nav-links">
+                <li><a class="nav-links-item" href="">Inicio</a></li>
+                <li><a class="nav-links-item" href="">Empresa</a></li>
+                <li><a class="nav-links-item" href="">Produtos</a></li>
+                <li><a class="nav-links-item" href="">Serviços</a></li>
+                <li><a class="nav-links-item" href="">Produtos</a></li>
+                <li><a class="nav-links-item" href="">Cases</a></li>
+                <li><a class="nav-links-item" href="">Blog</a></li>
+                <li>
+                    <div>
+                        <a href="https://www.logiquesistemas.com.br/contato/"><span>Entre em Contato</span></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main class="container flex-grow-1 d-flex flex-column align-items-center justify-content-center">
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer class="text-center py-4">
+        <div>
+            <img src="{% static 'img/logo-escura.png' %}" alt="Logo" class="img-fluid">
+            <span>© 2016. «Logique Sistemas». Todos os direitos reservados</span>
+        </div>
+        <div>
+            <span>+55 84 3207 1069</span>
+            <span><a href="mailto:contato@logiquesistemas.com.br">contato@logiquesistemas.com.br</a></span>
+        </div>
+    </footer>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
