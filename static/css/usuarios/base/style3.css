@@ -77,7 +77,7 @@ nav{
 footer{
     background-color: #1F2228;
     height: 11vh;
-    width: 99vw;
+    width: 100vw;
     display: flex;
     justify-content: space-evenly;
     align-items: center;

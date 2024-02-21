@@ -2,19 +2,37 @@
 
 {% load static %}
 
-{%block style%} <link rel="stylesheet" href="{% static 'css/usuarios/home/style.css' %}"> {% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/usuarios/home/style.css' %}">
+{% endblock %}
 
 {% block title %}Home{% endblock %}
+
+{% block content %}
 <section>
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="text-center">Bem vindo ao sistema de ponto eletrônico</h1>
+        <div class="row section-principal">
+            <div class="col-md-6 section-div-textos">
+                <h1 class="text-center big-text">Sistema de ponto eletrônico online para sua empresa</h1>
+                <p class="text-center section-div-textos-secundario">Efetue o login para acessar o sistema</p>
+            </div>
+            <div class="col-md-6">
+                <div class="login-form">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="cpf">CPF:</label>
+                            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF (apenas números)">
+                        </div>
+                        <div class="form-group">
+                            <label for="senha">Senha:</label>
+                            <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </section>
-
-{% block content %}
-
 {% endblock %}

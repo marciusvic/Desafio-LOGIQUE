@@ -1,4 +1,7 @@
 from django.shortcuts import render
 
 def home(request):
-    return render(request, 'usuarios/home.html')
+    if request.user.is_authenticated:
+        return render(request, 'usuarios/homeAuthenticated  .html', {'usuario': request.user})
+    else:
+        return render(request, 'usuarios/home.html')

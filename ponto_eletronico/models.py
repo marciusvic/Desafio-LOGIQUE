@@ -1,3 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
-# Create your models here.
+class Empresa(models.Model):
+    nome = models.CharField(max_length=100, blank=False, null=False)
+
+class CustomUser(AbstractUser):
+    nome = models.CharField(max_length=100, blank=False, null=False)
+    cpf = models.CharField(max_length=11, unique=True, blank=False, null=False)
+    date_nascimento = models.DateField(blank=False, null=False)
+    empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE, blank=False, null=False)
+
