@@ -11,6 +11,11 @@
 {% block content %}
 <section>
     <div class="container">
+        {% if error_message %}
+            <div class="alert alert-danger">
+                {{ error_message }}
+            </div>
+        {% endif %}
         <div class="row section-principal">
             <div class="col-md-6 section-div-textos">
                 <h1 class="text-center big-text">Sistema de ponto eletrônico online para sua empresa</h1>

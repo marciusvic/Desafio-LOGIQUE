@@ -105,3 +105,19 @@ footer a{
 footer img{
     max-height: 96px;
 }
+
+.btn-sair {
+    font-size: 1.5rem;
+    width: 100px;
+    height: 40px;
+    background-color: #d00000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-sair:hover {
+    background-color: #920000;
+    color: #fff;
+}

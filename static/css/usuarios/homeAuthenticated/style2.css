@@ -1,0 +1,10 @@
+section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 79vh;
+    width: 100vw;
+    background: url('https://www.logiquesistemas.com.br/wp-content/themes/logique-site-wordpress/img/wave.png') repeat;
+    background-color: #f2f2f2;
+}

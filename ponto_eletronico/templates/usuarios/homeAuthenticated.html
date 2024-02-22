@@ -1,0 +1,35 @@
+{% extends "usuarios/base.html" %}
+
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/usuarios/homeAuthenticated/style2.css' %}">
+{% endblock %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section>
+    <div>
+        <h2>Bem-vindo {{ request.user.nome.split.0.capitalize }}</h2>
+        <p>Seja bem-vindo ao sistema de ponto eletrônico.</p>
+        <h3>Seus dados:</h3>
+        <p>Nome: {{ request.user.nome }}</p>
+        <p>CPF: {{ request.user.cpf }}</p>
+        <p>Empresa: {{ request.user.empresa.nome }}</p>
+    </div>
+    <div>
+        <h3>Seus registros de ponto hoje:</h3>
+        <p>ponto 1</p>
+        <p>ponto 2</p>
+        <p>ponto 3</p>
+        <p>ponto 4</p>
+        
+        <button class="btn btn-dark rounded-pill">
+            <a class="btn-link" href="/agendamento">
+              <span class="btn-text">REALIZAR AGENDAMENTO</span>
+            </a>
+          </button>
+    </div>
+</section>
+{% endblock %}
