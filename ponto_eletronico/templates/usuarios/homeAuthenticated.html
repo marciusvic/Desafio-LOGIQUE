@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block style %}
-<link rel="stylesheet" href="{% static 'css/usuarios/homeAuthenticated/style2.css' %}">
+<link rel="stylesheet" href="{% static 'css/usuarios/homeAuthenticated/style.css' %}">
 {% endblock %}
 
 {% block title %}Home{% endblock %}
@@ -20,16 +20,14 @@
     </div>
     <div>
         <h3>Seus registros de ponto hoje:</h3>
-        <p>ponto 1</p>
-        <p>ponto 2</p>
-        <p>ponto 3</p>
-        <p>ponto 4</p>
+        {% for ponto in pontos %}
+          <p>{{ ponto.hora }}</p>
+        {% endfor %}
         
-        <button class="btn btn-dark rounded-pill">
-            <a class="btn-link" href="/agendamento">
-              <span class="btn-text">REALIZAR AGENDAMENTO</span>
-            </a>
-          </button>
+        <form action="{% url 'ponto' %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Registrar ponto">
+        </form>
     </div>
 </section>
 {% endblock %}

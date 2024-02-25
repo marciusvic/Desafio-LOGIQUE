@@ -1,14 +1,16 @@
 from django.shortcuts import render, redirect
 
-from .models import Empresa, CustomUser
+from .models import Empresa, CustomUser, PontoEletronico
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth import login as auth_login
 
 from django.utils import timezone
+import pytz
 
 def home(request):
     if request.user.is_authenticated:
-        return render(request, 'usuarios/homeAuthenticated.html')
+        pontos = PontoEletronico.objects.filter(user_id=request.user.id, data=timezone.now().date())
+        return render(request, 'usuarios/homeAuthenticated.html', {'pontos': pontos})
     else:
         if request.method == 'GET':
             return render(request, 'usuarios/home.html')
@@ -29,3 +31,17 @@ def home(request):
 def logout_view(request):
     logout(request)
     return redirect('/')
+
+def ponto(request):
+    if request.method == 'GET':
+        return redirect('/')
+    else:
+        local_time = timezone.localtime(timezone.now())
+        fortaleza_tz = pytz.timezone('America/Fortaleza')
+        fortaleza_time = local_time.astimezone(fortaleza_tz)
+        hora = fortaleza_time.time()
+        data = fortaleza_time.date()
+        user_id = request.user.id
+        ponto_eletronico = PontoEletronico(user_id=user_id, data=data, hora=hora)
+        ponto_eletronico.save()
+        return redirect('/')
