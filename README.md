@@ -33,3 +33,6 @@ O projeto segue a arquitetura Model-View-Template (MVT) do framework Django, pro
 3. Registre o ponto de entrada e saída
 
 # Como Usuário Admin
+1. Acesse a página de login `http://localhost:8000/admin`
+2. Faça o login com o usuário `admin` e senha `12345`
+3. Cadastre funcionários e empresas

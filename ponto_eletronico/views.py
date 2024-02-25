@@ -22,12 +22,16 @@ def home(request):
             cpf = request.POST.get('cpf')
             senha = request.POST.get('senha')
 
+            print(cpf)
+            print(senha)
+
             username = CustomUser.objects.get(cpf=cpf).username
+            print(username)
             if username is None:
                 return render(request, 'usuarios/home.html', {'error_message': 'CPF não encontrado'})
-            password = senha
-            user = authenticate(request, username=username, password=password)
-
+            user = authenticate(request, username=username, password=senha)
+            print(user)
+            
             if user:
                 auth_login(request, user)
                 return redirect('/')
