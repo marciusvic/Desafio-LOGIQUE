@@ -26,8 +26,11 @@
         
         <form action="{% url 'ponto' %}" method="POST">
             {% csrf_token %}
-            <input type="submit" value="Registrar ponto">
+            <input type="submit" value="Registrar ponto" class="botao-registrar">
         </form>
+
+        <h3>Tempo trabalhado hoje: <span> {{ horas_trabalhadas }} </span></h3>
+        <h3>Tempo restante até o fim do expediente <span> {{ tempo_restante }} </span></h3>
     </div>
 </section>
 {% endblock %}
